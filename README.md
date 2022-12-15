@@ -47,3 +47,11 @@ You will get redirected to:
 - Git should be used as a VCS. Please send us the link to the repository or a zip-file.
 - Feel free to ask questions regarding the requirements.
 - Be careful not to violate any image rights.
+
+# Setup
+
+- Have Docker and Docker Compose installed
+- $ git clone https://github.com/uwepries/be-developer-test
+- $ cd be-developer-test
+- $ cd docker
+- $ docker-compose up -d
