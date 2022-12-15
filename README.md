@@ -55,3 +55,8 @@ You will get redirected to:
 - $ cd be-developer-test
 - $ cd docker
 - $ docker-compose up -d
+- $ docker exec -it anwaltde-image-service-app composer install
+- open in browser: http://localhost:8000/
+
+# Execute Tests
+- $ docker exec -it anwaltde-image-service-app ./vendor/bin/phpunit
