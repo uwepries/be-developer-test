@@ -15,25 +15,25 @@ class ImageResizeService
         
     }
 
-    public function resize(Resizeable $image, int $width, int $height): void
+    public function resize(Resizeable $image, int $width, int $height, Image $out): bool
     {
         // Content type
-        header('Content-Type: image/jpeg');
+        #header('Content-Type: image/jpeg');
 
         $thumb = $image->resize($width, $height);
 
         // Output
-        imagejpeg($thumb);
+        return imagejpeg($thumb, $out->getFullPath());
     }
 
-    public function crop(Cropable $image, int $width, int $height, ?int $offsetX = 0, ?int $offsetY = 0): void
+    public function crop(Cropable $image, int $width, int $height, Image $out, ?int $offsetX = 0, ?int $offsetY = 0): bool
     {
         // Content type
-        header('Content-Type: image/jpeg');
+        #header('Content-Type: image/jpeg');
 
         $thumb = $image->crop($width, $height, $offsetX, $offsetY);
 
         // Output
-        imagejpeg($thumb);
+        return imagejpeg($thumb, $out->getFullPath());
     }
 }

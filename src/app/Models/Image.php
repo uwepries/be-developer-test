@@ -14,7 +14,12 @@ class Image implements Cropable, Resizeable
         
     }
 
-    public function getPathToImage()
+    public function getFrontendPath()
+    {
+        return substr($this->pathToImage, strpos($this->pathToImage, '/assets'));   
+    }
+
+    public function getFullPath()
     {
         return $this->pathToImage;   
     }
