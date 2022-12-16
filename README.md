@@ -5,8 +5,9 @@
 - $ cd be-developer-test
 - $ cd docker
 - $ docker-compose up -d
+- $ cd ..
+- $ chmod 777 ./src/public/assets/thumb
 - $ docker exec -it anwaltde-image-service-app composer install
-- $ chmod 777 `find . -type d -name thumb`
 
 # Execute Tests
 - $ docker exec -it anwaltde-image-service-app ./vendor/bin/phpunit

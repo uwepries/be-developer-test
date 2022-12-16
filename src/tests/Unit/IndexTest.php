@@ -39,7 +39,7 @@ class IndexTest extends TestCase
         $offsetY = 0;
 
         $in = new Image(Controller::DOC_ROOT . "/assets/img/{$img}");
-        $out = new Image(Controller::DOC_ROOT . "/assets/thumb/" . strtr($img, [".jpg" => "-{$width}x{$height}+{$offsetX}+{$offsetY}.jpg"]));
+        $out = new Image(Controller::DOC_ROOT . "/assets/thumb/" . strtr($img, [".jpg" => "-{$width}x{$height}+{$offsetX}+{$offsetY}-test.jpg"]));
 
         $imageResizeService = new ImageResizeService();
         if (!$imageResizeService->crop($in, $width, $height, $out, $offsetX, $offsetY)) {
@@ -47,6 +47,8 @@ class IndexTest extends TestCase
         }
 
         $this->assertFileExists($out->getFullPath());
+
+        unlink($out->getFullPath());
     }
 
     /** @test */
@@ -57,7 +59,7 @@ class IndexTest extends TestCase
         $height = 480;
 
         $in = new Image(Controller::DOC_ROOT . "/assets/img/{$img}");
-        $out = new Image(Controller::DOC_ROOT . "/assets/thumb/" . strtr($img, [".jpg" => "-{$width}x{$height}.jpg"]));
+        $out = new Image(Controller::DOC_ROOT . "/assets/thumb/" . strtr($img, [".jpg" => "-{$width}x{$height}-test.jpg"]));
 
         $imageResizeService = new ImageResizeService();
         if (!$imageResizeService->resize($in, $width, $height, $out)) {
@@ -65,5 +67,7 @@ class IndexTest extends TestCase
         }
 
         $this->assertFileExists($out->getFullPath());
+
+        unlink($out->getFullPath());
     }
 }
