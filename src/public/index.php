@@ -7,9 +7,6 @@ use App\Controller\IndexController;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-define("DOC_ROOT", __DIR__);
-define("VIEWS_ROOT", __DIR__ . '/../views/');
-
 $router = new Router();
 
 $router->get('/', [IndexController::class, 'index']);
